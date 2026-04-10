@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Co. Menu</title>
+</head>
+
+<body style="background:#FFF8E1; font-family:Arial;">
+
+<h1 style="text-align:center; color:#3E2723;">🍴 Food Co. Menu</h1>
+<h3 style="text-align:center;">Welcome, {{ user.username }}</h3>
+
+<form method="post" action="/billing/" style="width:60%; margin:auto; background:white; padding:20px; border-radius:10px;">
+{% csrf_token %}
+
+<h2 style="color:#5D4037;">🧇 Waffles (₹120)</h2>
+
+<input type="checkbox" name="items" value="Belgian Chocolate Waffle"> Belgian Chocolate Waffle<br>
+<input type="checkbox" name="items" value="Nutella Crunch Waffle"> Nutella Crunch Waffle<br>
+<input type="checkbox" name="items" value="Strawberry Cream Waffle"> Strawberry Cream Waffle<br>
+<input type="checkbox" name="items" value="Oreo Blast Waffle"> Oreo Blast Waffle<br>
+<input type="checkbox" name="items" value="KitKat Chocolate Waffle"> KitKat Chocolate Waffle<br>
+<input type="checkbox" name="items" value="Mango Delight Waffle"> Mango Delight Waffle<br>
+<input type="checkbox" name="items" value="Caramel Crunch Waffle"> Caramel Crunch Waffle<br>
+<input type="checkbox" name="items" value="Dark Fantasy Waffle"> Dark Fantasy Waffle<br>
+
+<hr>
+<h3 style="color:red;">🔥 Special Offer: 10% OFF above ₹200</h3>
+<h2 style="color:#5D4037;">🥤 Cold Drinks (₹60)</h2>
+
+<input type="checkbox" name="items" value="Blueberry Drink"> Blueberry<br>
+<input type="checkbox" name="items" value="Mango Drink"> Mango<br>
+<input type="checkbox" name="items" value="Litchi Drink"> Litchi<br>
+<input type="checkbox" name="items" value="Orange Drink"> Orange<br>
+<input type="checkbox" name="items" value="Chocolate Drink"> Chocolate<br>
+<input type="checkbox" name="items" value="Lime Drink"> Lime<br>
+<input type="checkbox" name="items" value="Coca-Cola"> Coca-Cola<br>
+
+<br><br>
+
+<button type="submit" style="background:#FF8F00; padding:10px; border:none; color:white; border-radius:5px;">
+    Place Order
+</button>
+
+</form>
+
+</body>
+</html>

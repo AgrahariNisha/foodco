@@ -1,0 +1,19 @@
+<h2 style="text-align:center;">Register</h2>
+
+{% if messages %}
+  {% for message in messages %}
+    <p style="color:green; text-align:center;">{{ message }}</p>
+  {% endfor %}
+{% endif %}
+
+<form method="post" style="text-align:center;">
+{% csrf_token %}
+
+ <input type="text" name="username" placeholder="Username" required>
+ <input type="email" name="email" placeholder="Email" required>
+ <input type="password" name="password" placeholder="Password" required>
+
+
+<button type="submit">Register</button>
+
+</form>
