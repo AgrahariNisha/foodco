@@ -1,4 +1,5 @@
 import requests
+from django.shortcuts import render
 from django.db import IntegrityError
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
@@ -104,6 +105,8 @@ def billing(request):
         gst = total * 0.05
         discount = total * 0.10 if total > 200 else 0
         final = total + gst - discount
+        request.session['final_amount'] = final
+        request.session.modified = True
 
         Order.objects.create(
             user=request.user,
@@ -124,7 +127,17 @@ def billing(request):
 
     return redirect('menu')
 
+def payment(request):
+    amount = request.GET.get('amount')
 
+    print("AMOUNT FROM URL:", amount)   # 🔥 DEBUG
+
+    return render(request, 'payment.html', {'amount': amount})
+
+
+
+def fail(request):
+    return render(request, 'fail.html')
 # =========================
 # SUCCESS
 # =========================

@@ -7,4 +7,10 @@
 
 <h3>Final Amount: ₹{{ final }}</h3>
 
-<a href="/success/">Confirm Order</a>
+<a href="/payment/?amount={{ final }}">
+    <button style="background:green; color:white; padding:10px;">
+        Proceed to Payment
+    </button>
+</a>
+
+<a href="/menu/">go to menu</a>

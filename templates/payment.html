@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment</title>
+
+    <script>
+        let time = 60;
+
+        function countdown() {
+            document.getElementById("timer").innerHTML = time + " seconds remaining";
+            time--;
+
+            if (time < 0) {
+                window.location.href = "/fail/";
+            }
+        }
+
+        setInterval(countdown, 1000);
+    </script>
+
+</head>
+
+<body style="text-align:center; background:#E8F0FE; font-family:Arial;">
+
+<h2 style="color:#1A73E8;">Google Pay</h2>
+
+<p>Scan QR to Pay</p>
+
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=upi://pay?pa=foodco@upi&pn=FoodCo&am={{ amount|default:0 }}&cu=INR">
+<p id="timer" style="color:red;"></p>
+
+
+
+<h3 style="font-size:22px; color:#000;">
+    Amount to Pay: <span style="color:#1A73E8;">₹{{ amount }}</span>
+</h3>
+
+<br>
+
+<a href="/success/">
+    <button style="background:#34A853; color:white; padding:10px; border:none;">
+        Payment Done ✅
+    </button>
+</a>
+
+<br><br>
+
+<a href="/fail/">
+    <button style="background:#EA4335; color:white; padding:10px; border:none;">
+        Cancel ❌
+    </button>
+</a>
+
+</body>
+</html>
