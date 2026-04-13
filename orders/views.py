@@ -138,6 +138,12 @@ def payment(request):
 
 def fail(request):
     return render(request, 'fail.html')
+
+def help_page(request):
+    return render(request, 'help.html')
+
+def cart(request):
+    return render(request, 'cart.html')
 # =========================
 # SUCCESS
 # =========================

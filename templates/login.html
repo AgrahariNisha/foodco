@@ -1,12 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+
+<body style="
+    margin:0;
+    font-family:Arial;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+">
+
+<div style="
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    width:300px;
+    box-shadow:0 0 20px rgba(0,0,0,0.2);
+">
+
 <h2 style="text-align:center;">Login</h2>
 
 <form method="post" style="text-align:center;">
 {% csrf_token %}
 {{ form.as_p }}
 
-<button type="submit">Login</button>
+<button type="submit" style="
+    background:#FFD700;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    width:100%;
+    cursor:pointer;
+    font-weight:bold;
+">
+Login
+</button>
 </form>
 
 <p style="text-align:center;">
-Don't have an account? <a href="/register/">Register</a>
+Don't have an account? 
+<a href="/register/" style="color:#ff7e5f; font-weight:bold;">
+Register
+</a>
 </p>
+
+</div>
+
+</body>
+</html>

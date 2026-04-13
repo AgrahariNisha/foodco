@@ -29,4 +29,6 @@ urlpatterns = [
     path('register/', views.register),
     path('payment/', views.payment),
     path('fail/', views.fail),
+    path('help/', views.help_page, name='help'),
+    path('cart/', views.cart, name='cart'),
 ]

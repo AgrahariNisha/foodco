@@ -1,16 +1,87 @@
-<h2>Bill</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bill</title>
 
-<p>Items: {{ items }}</p>
-<p>Total: ₹{{ total }}</p>
-<p>GST (5%): ₹{{ gst }}</p>
-<p>Discount: ₹{{ discount }}</p>
+    <style>
+    body {
+        font-family: Arial;
+        background: linear-gradient(to right, #ffecd2, #fcb69f);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .bill-box {
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        width: 350px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        text-align: center;
+    }
+
+    h2 {
+        color: #333;
+    }
+
+    p {
+        font-size: 16px;
+        margin: 5px 0;
+    }
+
+    h3 {
+        color: #000;
+        margin-top: 15px;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        margin-top: 15px;
+        border: none;
+        border-radius: 8px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .pay-btn {
+        background: green;
+    }
+
+    .menu-btn {
+        background: gray;
+    }
+    </style>
+
+</head>
+
+<body>
+
+<div class="bill-box">
+
+<h2>🧾 Bill Summary</h2>
+
+<p><b>Items:</b> {{ items }}</p>
+<p><b>Total:</b> ₹{{ total }}</p>
+<p><b>GST (5%):</b> ₹{{ gst }}</p>
+<p><b>Discount:</b> ₹{{ discount }}</p>
 
 <h3>Final Amount: ₹{{ final }}</h3>
 
+<!-- Proceed to Payment -->
 <a href="/payment/?amount={{ final }}">
-    <button style="background:green; color:white; padding:10px;">
-        Proceed to Payment
-    </button>
+    <button class="pay-btn">Proceed to Payment 💳</button>
 </a>
 
-<a href="/menu/">go to menu</a>
+<!-- Space automatically handled by margin -->
+<a href="/menu/">
+    <button class="menu-btn">⬅ Go to Menu</button>
+</a>
+
+</div>
+
+</body>
+</html>

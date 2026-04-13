@@ -15,41 +15,107 @@
             }
         }
 
-        setInterval(countdown, 1000);
+        function showQR() {
+            document.getElementById("qrSection").style.display = "block";
+            document.getElementById("cardSection").style.display = "none";
+            setInterval(countdown, 1000);
+        }
+
+        function showCard() {
+            document.getElementById("qrSection").style.display = "none";
+            document.getElementById("cardSection").style.display = "block";
+        }
     </script>
+
+    <style>
+    body {
+        font-family: Arial;
+        background: linear-gradient(to right, #dfe9f3, #ffffff);
+        text-align: center;
+    }
+
+    .box {
+        width: 350px;
+        margin: auto;
+        margin-top: 50px;
+        background: white;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+
+    button {
+        padding: 10px;
+        margin: 10px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        color: white;
+    }
+
+    .qr-btn { background: #34A853; }
+    .card-btn { background: #1A73E8; }
+
+    input {
+        width: 90%;
+        padding: 8px;
+        margin: 5px;
+    }
+    </style>
 
 </head>
 
-<body style="text-align:center; background:#E8F0FE; font-family:Arial;">
+<body>
 
-<h2 style="color:#1A73E8;">Google Pay</h2>
+<div class="box">
 
-<p>Scan QR to Pay</p>
+<h2>💳 Choose Payment Method</h2>
 
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=upi://pay?pa=foodco@upi&pn=FoodCo&am={{ amount|default:0 }}&cu=INR">
-<p id="timer" style="color:red;"></p>
+<button class="qr-btn" onclick="showQR()">Pay with QR 📱</button>
+<button class="card-btn" onclick="showCard()">Pay with Card 💳</button>
 
+<h3>Amount: ₹{{ amount }}</h3>
 
+<!-- QR SECTION -->
+<div id="qrSection" style="display:none;">
 
-<h3 style="font-size:22px; color:#000;">
-    Amount to Pay: <span style="color:#1A73E8;">₹{{ amount }}</span>
-</h3>
+    <h3>Scan QR</h3>
 
-<br>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=foodco@upi&pn=FoodCo&am={{ amount|default:0 }}&cu=INR">
 
-<a href="/success/">
-    <button style="background:#34A853; color:white; padding:10px; border:none;">
-        Payment Done ✅
-    </button>
-</a>
+    <p id="timer" style="color:red;"></p>
 
-<br><br>
+    <a href="/success/">
+        <button class="qr-btn">Payment Done ✅</button>
+    </a>
 
-<a href="/fail/">
-    <button style="background:#EA4335; color:white; padding:10px; border:none;">
-        Cancel ❌
-    </button>
-</a>
+    <a href="/fail/">
+        <button style="background:red;">Cancel ❌</button>
+    </a>
+
+</div>
+
+<!-- CARD SECTION -->
+<div id="cardSection" style="display:none;">
+
+    <h3>Enter Card Details</h3>
+
+    <input type="text" placeholder="Card Number"><br>
+    <input type="text" placeholder="Card Holder Name"><br>
+    <input type="text" placeholder="Expiry (MM/YY)">
+    <input type="text" placeholder="CVV"><br>
+
+    <a href="/success/">
+        <button class="card-btn">Pay Now 💳</button>
+    </a>
+
+    <a href="/fail/">
+        <button style="background:red;">Cancel ❌</button>
+    </a>
+
+</div>
+
+</div>
 
 </body>
 </html>

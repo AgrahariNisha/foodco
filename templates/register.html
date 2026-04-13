@@ -1,3 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+</head>
+
+<body style="
+    margin:0;
+    font-family:Arial;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+">
+
+<div style="
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    width:300px;
+    box-shadow:0 0 20px rgba(0,0,0,0.2);
+    text-align:center;
+">
+
 <h2 style="text-align:center;">Register</h2>
 
 {% if messages %}
@@ -9,11 +34,30 @@
 <form method="post" style="text-align:center;">
 {% csrf_token %}
 
- <input type="text" name="username" placeholder="Username" required>
- <input type="email" name="email" placeholder="Email" required>
- <input type="password" name="password" placeholder="Password" required>
+<input type="text" name="username" placeholder="Username" required
+style="width:90%; padding:8px; margin:5px; border-radius:5px; border:1px solid #ccc;"><br><br>
 
+<input type="email" name="email" placeholder="Email" required
+style="width:90%; padding:8px; margin:5px; border-radius:5px; border:1px solid #ccc;"><br><br>
 
-<button type="submit">Register</button>
+<input type="password" name="password" placeholder="Password" required
+style="width:90%; padding:8px; margin:5px; border-radius:5px; border:1px solid #ccc;"><br><br>
+
+<button type="submit" style="
+    background:#FFD700;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    width:100%;
+    cursor:pointer;
+    font-weight:bold;
+">
+Register
+</button>
 
 </form>
+
+</div>
+
+</body>
+</html>

@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Payment Failed</title>
+    <title>Cart</title>
 
     <style>
     body {
         font-family: Arial;
-        background: linear-gradient(to right, #ffdde1, #ee9ca7);
+        background: linear-gradient(to right, #f6d365, #fda085);
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
     }
 
-    .card {
+    .box {
         background: white;
         padding: 30px;
         border-radius: 15px;
         text-align: center;
-        box-shadow: 0 0 20px rgba(0,0,0,0.2);
         width: 350px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
     }
 
     h2 {
-        color: red;
+        color: #333;
     }
 
     p {
@@ -31,20 +31,12 @@
     }
 
     button {
+        background: orange;
+        color: white;
         padding: 10px 15px;
-        margin: 10px;
         border: none;
         border-radius: 8px;
         cursor: pointer;
-        color: white;
-    }
-
-    .menu-btn {
-        background: #1A73E8;
-    }
-
-    .help-btn {
-        background: gray;
     }
     </style>
 
@@ -52,22 +44,20 @@
 
 <body>
 
-<div class="card">
+<div class="box">
 
-<h2>❌ Payment Failed</h2>
+<h2>🛒 Your Cart</h2>
 
-<p>Please try again.</p>
+<p>No items added yet.</p>
 
 <p style="color:gray; font-size:14px;">
-If any amount is deducted from your account, it will be refunded within 1 day.
+Items you select will appear here.
 </p>
 
-<a href="/menu/">
-    <button class="menu-btn">⬅ Back to Menu</button>
-</a>
+<br>
 
-<a href="/help/">
-    <button class="help-btn">Help ❓</button>
+<a href="/menu/">
+    <button>Go to Menu</button>
 </a>
 
 </div>
